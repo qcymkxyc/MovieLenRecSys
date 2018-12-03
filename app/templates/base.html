@@ -1,0 +1,15 @@
+{% extends "bootstrap/base.html"%}
+{% block title %} {% endblock %}
+
+{% block navbar %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning" role="alert">{{ message }}</div>
+        {% endfor %}
+        {% block page_content %}{% endblock %}
+    </div>
+{% endblock %}
