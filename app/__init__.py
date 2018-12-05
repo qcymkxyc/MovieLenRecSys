@@ -39,6 +39,8 @@ def create_app(config_name):
 
     from .main import main
     app.register_blueprint(main)
+    from .movie import movie
+    app.register_blueprint(movie,url_prefix="/movies")
 
     return app
 

@@ -5,11 +5,6 @@
  @email:qcymkxyc@163.com
  @software: PyCharm
  @file: __init__.py.py
- @time: 2018/12/3 18:43
+ @time: 2018/12/4 13:20
  
 """
-from flask import blueprints
-
-movie = blueprints.Blueprint("movie",__name__)
-
-from app.movie import errors, forms, views
