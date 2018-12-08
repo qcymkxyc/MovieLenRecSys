@@ -15,10 +15,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 
 from config import conf
+from app.rec import mongo_helper
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 moment = Moment()
+mongo_db = None
 
 
 def create_app(config_name):
@@ -29,6 +31,8 @@ def create_app(config_name):
     :return: flask.Flask
         应用
     """
+    global mongo_db
+
     app = Flask(__name__)
     app.config.from_object(conf.config[config_name])
     conf.config[config_name].init_app(app)
@@ -37,6 +41,9 @@ def create_app(config_name):
     db.init_app(app)
     moment.init_app(app)
 
+    mongo_db = mongo_helper.create_mongo_db(config_name)
+
+    # 蓝图
     from .main import main
     app.register_blueprint(main)
     from .movie import movie

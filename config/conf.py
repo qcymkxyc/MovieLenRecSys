@@ -11,7 +11,7 @@
 
 
 class Config:
-    # 数据库设置
+    # MYSQL数据库设置
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SQLALCHEMY_COMMIT_TEARDOWN = True
 
@@ -25,6 +25,14 @@ class Config:
         pw=pw,
         host=host,
         database=database)
+
+    # MongoDB配置
+    MONGO_HOST = "180.76.53.98"
+    MONGO_POST = 27017
+    MONGO_DB = "movie_len"   # 数据库名
+
+    # 推荐设置
+    POPULAR_TOP_N = 8   # 热门推荐个数
 
     @staticmethod
     def init_app(app):

@@ -20,6 +20,25 @@ class Movie(db.Model):
 
     pic_paths = db.Column("pictures", db.String)
 
+    def to_json(self):
+        json_movie = {
+            "movie_id" : self.movie_id,
+            "title" : self.title,
+            "genres" : self.genres,
+            "pic_paths" : self.pic_paths
+        }
+        return json_movie
+
+    @staticmethod
+    def from_json(json_movie):
+        movie = Movie()
+        movie.movie_id = json_movie["movie_id"]
+        movie.title = json_movie["title"]
+        movie.genres = json_movie["genres"]
+        movie.pic_paths = json_movie["pic_paths"]
+
+        return movie
+
 
 class Tag(db.Model):
     __tablename__ = "t_genome-tags"
@@ -54,6 +73,3 @@ class UserTag(db.Model):
     movie_id = db.Column("movieId",db.Integer)
     tag_name = db.Column("tag", db.String,)
     timestamp = db.Column("timestamp",db.BigInteger)
-
-
-

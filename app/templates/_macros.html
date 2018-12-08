@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+{% macro popular_movie(pupular_movies) %}
+    {% for movie in pupular_movies %}
+        {% if loop.index0 % 4 == 0 %}
+            <div class="row">
+        {% endif %}
+        <div class="col-md-3">
+            <a class="thumbnail">
+                <img src="{{ movie.pic_paths.split(",")[0] }}" alt="{{ movie.title }}">
+            </a>
+            <h3>{{ movie.title }}</h3>
+        </div>
+        {% if loop.index % 4 == 0%}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{% endmacro %}

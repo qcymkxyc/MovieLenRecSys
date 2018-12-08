@@ -9,9 +9,16 @@
 
 """
 from . import main
-from flask import render_template, current_app
+from flask import render_template,current_app
+from app.models import Movie
+from app.rec import rec
 
 
 @main.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    # 热门电影
+    if not hasattr(current_app,"popular_movies"):
+        popular_movies = rec.get_popular_movies(current_app.config["POPULAR_TOP_N"])
+        current_app.popular_movies = popular_movies
+
+    return render_template("index.html",popular_movies = current_app.popular_movies)
