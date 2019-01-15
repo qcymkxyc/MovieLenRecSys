@@ -33,6 +33,11 @@ class Config:
 
     # 推荐设置
     POPULAR_TOP_N = 8   # 热门推荐个数
+    MOVIE_POPULARITY_COLLECTION = "movie_popularity"    # 电影流行度Collection
+    POPULAR_MOVIE_N = 100   # 最流行的电影个数
+    POPULAR_MOVIE_COLLECTION = "most_popular_movie"     # 最流行的电影
+    ITEMCF_MATRIX = "itemcf_matrix"     # 物品协同过滤矩阵
+
 
     @staticmethod
     def init_app(app):

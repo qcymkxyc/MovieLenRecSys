@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros%}
+
+{% block page_content %}
+    {{ macros.movie_list(movies) }}
+{% endblock %}

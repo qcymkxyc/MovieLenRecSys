@@ -11,6 +11,13 @@
 from flask import render_template, request
 from . import movie as movie_blueprint
 from ..models import Movie, Tag, Rating, UserTag
+from app.recommend import most_popular
+
+
+@movie_blueprint.route("popular_movies", methods=["GET", "POST"])
+def popular_movies():
+    most_popular_movies = most_popular.get_popular_movies()
+    return render_template("movie_list.html", movies=most_popular_movies)
 
 
 @movie_blueprint.route("/movie/<movie_id>", methods=["GET", "POST"])

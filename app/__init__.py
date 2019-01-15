@@ -15,7 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 
 from config import conf
-from app.rec import mongo_helper
+from app.recommend import mongo_helper
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()

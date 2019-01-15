@@ -5,7 +5,9 @@
 
 {% block page_content %}
     <div class="page-header">
-        <h2>热门推荐</h2>
+        <h2 class="center-block">MoiveLens推荐系统测试</h2>
     </div>
-    {{ macros.popular_movie(popular_movies) }}
+    <h3>热门推荐<small>(most popular)</small></h3>
+    <p class="text-right"><a href="{{ url_for("movie.popular_movies") }}">更多>></a></p>
+    {{ macros.movie_list(popular_movies) }}
 {% endblock %}

@@ -1,5 +1,11 @@
 {% extends "base.html" %}
+{% block title %}{{ movie.title }} - Movielens推荐测试{% endblock %}
 
 {% block page_content %}
+    <h1 class="page-header text-center">
     {{ movie.title }}
+    </h1>
+    <div class="row thumbnail">
+        <img src="{{ movie.pic_paths.split(",")[0]}}">
+    </div>
 {% endblock %}

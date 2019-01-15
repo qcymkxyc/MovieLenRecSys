@@ -22,10 +22,10 @@ class Movie(db.Model):
 
     def to_json(self):
         json_movie = {
-            "movie_id" : self.movie_id,
-            "title" : self.title,
-            "genres" : self.genres,
-            "pic_paths" : self.pic_paths
+            "movie_id": self.movie_id,
+            "title": self.title,
+            "genres": self.genres,
+            "pic_paths": self.pic_paths
         }
         return json_movie
 
@@ -43,14 +43,14 @@ class Movie(db.Model):
 class Tag(db.Model):
     __tablename__ = "t_genome-tags"
 
-    tag_id = db.Column("tagId", db.Integer,primary_key=True)
+    tag_id = db.Column("tagId", db.Integer, primary_key=True)
     tag_name = db.Column("tag", db.String)
 
 
 class Links(db.Model):
     __tablename__ = "t_links"
 
-    movie_id = db.Column("movieId", db.Integer,primary_key=True)
+    movie_id = db.Column("movieId", db.Integer, primary_key=True)
     imdb_id = db.Column("imdbId", db.Integer)
     tmdb_id = db.Column("tmdbId", db.Integer)
 
@@ -68,8 +68,8 @@ class UserTag(db.Model):
     """用户打标签"""
     __tablename__ = "t_tags"
 
-    id = db.Column("id",db.Integer,autoincrement=True,primary_key=True)
-    user_id = db.Column("userId",db.Integer)
-    movie_id = db.Column("movieId",db.Integer)
+    id = db.Column("id", db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column("userId", db.Integer)
+    movie_id = db.Column("movieId", db.Integer)
     tag_name = db.Column("tag", db.String,)
-    timestamp = db.Column("timestamp",db.BigInteger)
+    timestamp = db.Column("timestamp", db.BigInteger)
