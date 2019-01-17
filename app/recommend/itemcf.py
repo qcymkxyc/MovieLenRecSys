@@ -70,4 +70,18 @@ def create_itemcf_matrix():
     return item_matrix
 
 
+def sim_item(item_id,top_n):
+    """相似商品
 
+    :param item_id: int
+        要查询商品ID
+    :param top_n: int
+        相似商品个数
+    :return: List[int]
+        相似的商品ID
+    """
+    matrix_name = current_app.config["ITEMCF_MATRIX"]
+    items = app.mongo_db[matrix_name].find_one({"itemId": item_id})["similarity"]
+    top_n_items = sorted(items,key=lambda x: x["sim"],reverse=True)[:top_n]
+    top_n_item_id = map(lambda x: x["ItemId"], top_n_items)
+    return list(top_n_item_id)

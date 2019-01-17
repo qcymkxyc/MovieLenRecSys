@@ -6,8 +6,8 @@
     @Author:  qcymkxyc
     @File: itemcf_test.py
     @Software: PyCharm
-    
-    
+
+
 """
 import unittest
 from app.recommend import itemcf
@@ -23,7 +23,11 @@ class ItemCFTestCase(unittest.TestCase):
     def test_create_itemcf_matrix(self):
         d = itemcf.create_itemcf_matrix()
         for item_id, item_sim in d.items():
-            print(item_id,item_sim)
+            print(item_id, item_sim)
+
+    def test_sim_item(self):
+        item_id = 307
+        itemcf.sim_item(307, 10)
 
 
 if __name__ == '__main__':
